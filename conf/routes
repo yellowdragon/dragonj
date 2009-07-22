@@ -1,0 +1,21 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET			/				Application.index
+
+# User Route Configuration
+
+GET         /user/{action}          user.UserController.{action}
+POST        /user/register          user.UserController.register
+POST        /user/login_validate    user.UserController.login_validate
+
+# Workspace Route Configuration
+
+GET         /workspace/{action}     workspace.Workspace.{action}
+
+# Map static resources from the /app/public folder to the /public path
+GET			/public/        		staticDir:public
+
+# Catch all
+*			/{controller}/{action}		{controller}.{action}

@@ -1,0 +1,49 @@
+#{extends 'main.html' /}
+#{set title:'Welcome and Join the community!' /}
+
+#{content}
+            <div id="main">
+                <p>
+                    <a href="@{user.UserController.login()}">如果已经有帐号，可以点这里登录！</a> <br/>
+                </p>
+
+                <h3>创建帐号</h3>
+
+                <div id="user">
+                    <form id="join_form" class="peleus_form" action="@{user.UserController.register()}"    method="post">
+                        <p><label>用户名</label>
+                            <input type="text"  size="30" name="user_form.name" value="${flash['user_form.name']}"/>
+                            <br />
+                            <span class="flashError">#{error 'user_form.name' /}</span>
+                        </p>
+
+                        <p>
+                            <label>Email</label>
+                            <input type="text" size="30" name="user_form.email" value="${flash['user_form.email']}"/>
+                            <br />
+                            <span class="flashError">#{error 'user_form.email' /}</span>
+                        </p>
+
+                        <p>
+                            <label>设置密码</label>
+                            <input type="password" size="30" name="user_form.password" value="${flash['user_form.password']}"/>
+                            <br />
+                            <span class="flashError">#{error 'user_form.password' /}</span>
+                        </p>
+
+                        <p>
+                            <label>再输一遍密码</label>
+                            <input type="password" size="30" name="user_form.repeat_password" value="${flash['user_form.repeat_password']}"/>
+                            <br />
+                            <span class="flashError">#{error 'user_form.repeat_password' /}</span>
+                        </p>
+
+                        <p>
+                            <input type="submit" value="创建我的帐号"/>
+                    </form>
+                </div>
+            </div>
+
+ #{/content}
+
+

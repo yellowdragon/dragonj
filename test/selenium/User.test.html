@@ -1,0 +1,29 @@
+*{ You can use plain selenium command using the selenium tag }*
+
+#{fixture delete:'all', load:'fixtures.yml' /}
+
+#{selenium}
+
+clearSession()
+
+// Open the home page, and check that no error occured
+open('/')
+waitForPageToLoad(1000)
+assertNotTitle('Application error')
+assertTextPresent('It works !')
+
+
+open(@@{user.UserController.login()})
+assertTextPresent('登录系统')
+assertTextPresent('Email')
+assertTextPresent('密码')
+assertTextPresent('还没有帐号?')
+clickAndWait('link=exact:还没有帐号?')
+assertTextPresent('创建帐号')
+type('user_form.name', 'tom')
+type('user_form.email', 't@a.com')
+type('user_form.repeat_password', '123456')
+clickAndWait('//input[@value="创建我的帐号"]')
+assertTextPresent('已成功创建帐号!')
+
+#{/selenium}

@@ -1,0 +1,10 @@
+
+User(Joe):
+  email: j@b.cn
+  name: Joe
+  password: iamjoe
+User(Darwin):
+  email: k@a.cn
+  name: Kate
+  password: iamkate
+  

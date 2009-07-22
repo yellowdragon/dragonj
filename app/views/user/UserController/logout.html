@@ -1,0 +1,14 @@
+#{extends 'main.html' /}
+#{set title:'You have logged out!' /}
+
+<div id="content-top">
+    <div id="content-bottom">
+        <div id="content">
+            <div id="main">
+                <div class="info">你已从系统中登出了！</div>
+                <br />
+                <a href="@{user.UserController.login()}">点此重新登录</a>
+            </div>
+        </div>
+    </div>
+</div>
